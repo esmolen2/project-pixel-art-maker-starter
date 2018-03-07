@@ -6,7 +6,7 @@ const inputColor = document.querySelector('#colorPicker');
 function colorPixel(event) {
   event.target.style.backgroundColor = inputColor.value;
 };
-pixelCanvas.addEventListener('click', colorPixel);
+pixelCanvas.addEventListener('mousedown', colorPixel);
 
 // Select size input
 const inputHeight = document.querySelector('#inputHeight');
