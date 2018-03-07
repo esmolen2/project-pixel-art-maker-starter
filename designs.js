@@ -1,15 +1,19 @@
+//Canvas element variable
+const pixelCanvas = document.querySelector('#pixelCanvas');
+
 // Select color input
 const inputColor = document.querySelector('#colorPicker');
+function colorPixel(event) {
+  event.target.style.backgroundColor = inputColor.value;
+};
+pixelCanvas.addEventListener('click', colorPixel);
 
 // Select size input
 const inputHeight = document.querySelector('#inputHeight');
 const inputWidth = document.querySelector('#inputWidth');
 const sizePicker = document.querySelector('#sizePicker');
 
-//Canvas element variable
-const pixelCanvas = document.querySelector('#pixelCanvas');
-
-// When size is submitted by the user, call makeGrid()
+// When size is submitted by the user, create appropriate sized grid
 function makeGrid(event) {
     event.preventDefault();
     if (pixelCanvas.rows.length === 0) {
@@ -19,9 +23,6 @@ function makeGrid(event) {
           for (let j = 1; j <= inputWidth.value; j++) {
             const newColumn = document.createElement('td');
             newRow.appendChild(newColumn);
-            newColumn.addEventListener('click', function () {
-              newColumn.style.backgroundColor = inputColor.value;
-            });
           }
       };
     } else {
@@ -34,9 +35,6 @@ function makeGrid(event) {
             for (let j = 1; j <= inputWidth.value; j++) {
               const newColumn = document.createElement('td');
               newRow.appendChild(newColumn);
-              newColumn.addEventListener('click', function () {
-                newColumn.style.backgroundColor = inputColor.value;
-              });
             }
         };
     };
